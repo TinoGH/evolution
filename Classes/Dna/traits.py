@@ -1,0 +1,13 @@
+
+TRAITS = {
+    'POPULATION',
+    'SIZE',
+    'FERTILITY',
+    'HERBIVORE',
+    'CARNIVORE',
+    'HIDING',
+    'SHELL',
+    'AWARENESS',
+    'INTELLIGENCE',
+    'COORDINATION'
+}
