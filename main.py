@@ -1,11 +1,14 @@
 
-from Classes.Animal import Animal
+from Classes.Evolution import Evolution
 
-test = Animal()
-print(test)
-test2 = test.give_birth()
-print(test2)
-test3 = test2.give_birth()
-print(test3)
-test4 = test3.give_birth()
-print(test4)
+population = 10
+evolution = Evolution(population)
+i = 0
+while 0 < population < 50:
+    print("step", i, ": population of", population, "\n", evolution, "\n")
+    evolution.step_reproduce()
+    evolution.step_feed()
+    population = evolution.step_survive()
+    i += 1
+
+print("step", i, ": population of", population, "\n", evolution, "\n")

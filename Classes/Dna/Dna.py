@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import Dict, Any
 
 from Classes.Dna.Gene import Gene
 from Classes.Dna.traits import TRAITS
@@ -41,16 +41,15 @@ class Dna:
 
         :return:
         """
-        main_traits: List[Tuple[str, int]] = [('', 0)] * (Dna._number_main_traits + 2)
+        main_traits: Dict[str, int] = dict()
         genes = self._genes.copy()
-        main_traits[0] = ('POPULATION', genes.pop('POPULATION').get_strength())
-        main_traits[1] = ('SIZE', genes.pop('SIZE').get_strength())
+        main_traits['POPULATION'] = genes.pop('POPULATION').get_strength()
+        main_traits['SIZE'] = genes.pop('SIZE').get_strength()
         strengths = [genes[trait].get_strength() for trait in genes.keys()]
         traits = [trait for trait in genes.keys()]
         for i in range(Dna._number_main_traits):
             index = strengths.index(max(strengths))
-            main_traits[i + 2] = (traits.pop(index), strengths.pop(index))
-
+            main_traits[traits.pop(index)] = strengths.pop(index)
         return main_traits
 
     def mutate(self):
