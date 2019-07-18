@@ -12,3 +12,4 @@ while 0 < population < 50:
     i += 1
 
 print("step", i, ": population of", population, "\n", evolution, "\n")
+
